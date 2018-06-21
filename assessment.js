@@ -7,7 +7,7 @@ After writing your function uncomment the matching function reference at the bot
 // 1. Write a function called helloWorld that returns the string 'Hello World!'.
 
 function helloWorld() {
-
+  return 'Hello World!'
 }
 
 /*
@@ -23,9 +23,28 @@ function helloWorld() {
              lambdaSchool(8); // returns 8
 */
 
-function lambdaSchool() {
+function lambdaSchool(num) {
+  
+  if (num % 15 == 0){
+    return 'Lambda School'
+  }
 
+  if (num % 3 == 0){
+    return 'Lambda'
+  }
+
+  if (num % 5 == 0){
+    return 'School'
+  }
+  
+  return num
 }
+
+// console.log(lambdaSchool(3))
+// console.log(lambdaSchool(5))
+// console.log(lambdaSchool(15))
+// console.log(lambdaSchool(8))
+
 
 /*
 3. Write a function called longestString that has a single parameter called strs.
@@ -38,9 +57,27 @@ function lambdaSchool() {
              longestString(['JavaScript', 'HTML', 'CSS']); // returns 'JavaScript'
 */
 
-function longestString() {
+function longestString(strs) {
+  var longest_length = 0
+  var longest_string = ''
+
+  var arrayLength = strs.length;
+
+  for (var i = 0; i < arrayLength; i++) {
+      var string = strs[i]
+      if (string.length > longest_length) {
+        longest_string = string
+        longest_length = string.length
+      }
+  }
+
+  return longest_string
 
 }
+
+// console.log(longestString(['hi', 'hello', 'ni hao', 'guten tag']))
+// console.log(longestString(['JavaScript', 'HTML', 'CSS']))
+// console.log(longestString([]))
 
 /*
 4. Write a function called computeUserAverageAge that has a single parameter called users
@@ -63,9 +100,31 @@ function longestString() {
              computeUserAverageAge(users); // returns 62 (This number is rounded up from 61.6666)
 */
 
-function computeUserAverageAge() {
+function computeUserAverageAge(users) {
+  var total_age = 0
+  var arrayLength = users.length;
+
+  for (var i = 0; i < arrayLength; i++) {
+      total_age += users[i].age
+  }
+
+  return Math.round(total_age/arrayLength)
 
 }
+
+// const users = [{
+//   name: 'Brendan Eich',
+//   age: 56,
+// }, {
+//   name: 'Linus Torvalds',
+//   age: 48,
+// }, {
+//   name: 'Margaret Hamilton',
+//   age: 81,
+// }];
+
+// console.log(computeUserAverageAge(users))
+
 
 module.exports = {
  helloWorld,
